@@ -197,7 +197,8 @@ const functions = {
   addProduct,
   totalProductCost,
   emptyList,
-  removeProduct
+  removeProduct,
+  testShow
 };
 
 if (typeof module === "object") {

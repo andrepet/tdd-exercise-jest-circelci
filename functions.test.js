@@ -1,5 +1,6 @@
 const functions = require("./functions");
-/*
+const readlineSync = require("readline-sync");
+
 test("Adds 2 + 2 to equal 4", () => {
   expect(2 + 2).toBe(4);
 });
@@ -138,7 +139,7 @@ describe("mock console.log()", () => {
   });
 });
 
-*/
+
 describe("mock readlineSync.question", () => {
   test("override parseInt to create fruitcakes", () => {
     parseInt = jest.fn(fruit => fruit + "kaka");
@@ -178,6 +179,7 @@ describe("mock readlineSync.question", () => {
     expect(output1 + output2 + output3).toBe("abc");
   });
 });
+
 /*
 describe("mock jQuery Ajax", () => {
   // https://stackoverflow.com/questions/1801160/can-i-use-jquery-with-node-js
