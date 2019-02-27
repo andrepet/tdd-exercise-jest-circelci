@@ -1,9 +1,7 @@
 const readlineSync =
   typeof module === "object"
     ? require("readline-sync")
-    : {
-        question: message => prompt(message)
-      };
+    : { question: message => prompt(message) };
 
 function main() {
   let products = [
@@ -155,9 +153,9 @@ function emptyList() {
   return [];
 }
 
-//const fetch = require("node-fetch")
-// npm install node-fetch --save
 function callFetch() {
+  // npm install node-fetch --save
+  const fetch = require("node-fetch")
   return fetch(
     "https://api.openbrewerydb.org/breweries/autocomplete?query=religion"
   ).then(response => {
@@ -166,14 +164,13 @@ function callFetch() {
   });
 }
 
-// const jsdom = require('jsdom');
-// const { JSDOM } = jsdom;
-// const { window } = new JSDOM();
-// const { document } = (new JSDOM('')).window;
-// global.document = document;
-// const $ = jQuery = require('jquery')(window);
-
 async function callAjaxJQuery() {
+  const jsdom = require("jsdom");
+  const { JSDOM } = jsdom;
+  const { window } = new JSDOM();
+  const { document } = new JSDOM("").window;
+  global.document = document;
+  const $ = (jQuery = require("jquery")(window));
   const json = await $.get(
     "https://api.openbrewerydb.org/breweries/autocomplete?query=religion"
   );
@@ -187,22 +184,6 @@ function testReadlineSync() {
   const output3 = readlineSync.question("valfritext 3: ");
   return output1 + output2 + output3;
 }
-
-// let readlineSync ={
-//   question: ((message) => prompt(message))
-// };
-
-// const functions = {
-//   callAjaxJQuery,
-//   testReadlineSync,
-//   callFetch,
-//   testShow,
-//   showProducts,
-//   main,
-//   addProduct,
-//   totalProductCost,
-//   emptyList
-// }
 
 function removeProduct(products, index) {
   const updateProducts = [...products];

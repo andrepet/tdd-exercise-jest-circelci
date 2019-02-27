@@ -7,7 +7,8 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:11.6.0
+      # <- UPDATE TO YOUR VERSION OF NODE, check with 'node --version'
+      - image: circleci/node:11.6.0  
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -26,6 +27,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
+      # CHANGED TO 'npm install'
       - run: npm install
 
       - save_cache:
@@ -34,4 +36,5 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
+      # CHANGED TO 'npm test'
       - run: npm test
