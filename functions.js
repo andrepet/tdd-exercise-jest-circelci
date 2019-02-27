@@ -1,7 +1,6 @@
-const readlineSync =
-  typeof module === "object"
-    ? require("readline-sync")
-    : { question: message => prompt(message) };
+const readlineSync = (typeof module === "object") ? require("readline-sync") : {
+  question: ((message) => prompt(message))
+};
 
 function main() {
   let products = [
