@@ -28,7 +28,7 @@ jobs:
             - v1-dependencies-
 
       # CHANGED TO 'npm install'
-      - run: npm install && npm install readline-sync
+      - run: npm install && npm install --save readline-sync
 
       - save_cache:
           paths:
